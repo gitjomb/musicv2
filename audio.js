@@ -85,6 +85,10 @@
 
                 console.log(result.music);
 
+                // kosongin selectmusic
+                chooseMusic.innerHTML = '';
+                //end
+                
                 var df = document.createDocumentFragment();
                 for(var d=0;d<playlist.length;d++)
                 {
@@ -113,7 +117,7 @@
             audio.src = musicBank+playlist[0];
             audio.loop = false;
             audio.play();
-            play_status.innerHTML = "Track "+(playlist_index+1)+" - "+ playlist[playlist_index].name;
+            play_status.innerHTML = "Track "+(playlist_index+1)+" - "+ playlist[playlist_index];
             document.title = play_status.innerText;
             
             playbtn.addEventListener("click", playPause);
@@ -158,7 +162,7 @@
             let checkedMusic = chooseMusic.options[chooseMusic.selectedIndex].value
             audio.src = musicBank+checkedMusic;
             playlist_index = chooseMusic.selectedIndex
-            play_status.innerHTML = "Track "+(playlist_index+1)+" - "+ playlist[playlist_index].name;
+            play_status.innerHTML = "Track "+(playlist_index+1)+" - "+ playlist[playlist_index];
             document.title = play_status.innerText;
             playPause(true);
         }
@@ -172,7 +176,7 @@
                     playlist_index++;
                 }
             }
-            play_status.innerHTML = "Track "+(playlist_index+1)+" - "+ playlist[playlist_index].name;
+            play_status.innerHTML = "Track "+(playlist_index+1)+" - "+ playlist[playlist_index];
             document.title = play_status.innerText;
             audio.src = musicBank+playlist[playlist_index];
             audio.play();
@@ -250,7 +254,7 @@
                 playlist_index = 0;
             }
             playlist_index++;
-            play_status.innerHTML = "Track "+(playlist_index+1)+" - "+ playlist[playlist_index].name;
+            play_status.innerHTML = "Track "+(playlist_index+1)+" - "+ playlist[playlist_index];
             document.title = play_status.innerText;
             audio.src = musicBank+playlist[playlist_index];
             playPause(true);
@@ -260,7 +264,7 @@
              alert("Error Mbah");
             }else {
             playlist_index--;
-            play_status.innerHTML = "Track "+(playlist_index+1)+" - "+ playlist[playlist_index].name;
+            play_status.innerHTML = "Track "+(playlist_index+1)+" - "+ playlist[playlist_index];
             document.title = play_status.innerText;
             audio.src = musicBank+playlist[playlist_index];
             playPause(true);

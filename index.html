@@ -3,139 +3,54 @@
     <head>
     <title>MusicAudio </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="styles.css"> -->
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     </head>
     <body>
-    <style>
-    .seekStyle{
-      -webkit-appearance: none;
-      margin: 7.3px 0;
-    }
-    .seekStyle:focus {
-      outline: none;
-    }
-    .seekStyle::-webkit-slider-runnable-track {
-      height: 11.4px;
-      cursor: pointer;
-      box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-      background: rgba(31, 74, 99, 0.92);
-      border-radius: 1.3px;
-      border: 0.2px solid #010101;
-    }
-    .seekStyle::-webkit-slider-thumb {
-      box-shadow: 0.9px 0.9px 1px rgba(0, 56, 49, 0.24), 0px 0px 0.9px rgba(0, 82, 71, 0.24);
-      border: 1.8px solid rgba(0, 4, 30, 0.14);
-      height: 26px;
-      width: 26px;
-      border-radius: 15px;
-      background: rgba(71, 227, 255, 0.89);
-      cursor: pointer;
-      -webkit-appearance: none;
-      margin-top: -7.5px;
-    }
-    .seekStyle:focus::-webkit-slider-runnable-track {
-      background: rgba(37, 89, 118, 0.92);
-    }
-    .seekStyle::-moz-range-track {
-      height: 11.4px;
-      cursor: pointer;
-      box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-      background: rgba(31, 74, 99, 0.92);
-      border-radius: 1.3px;
-      border: 0.2px solid #010101;
-    }
-    .seekStyle::-moz-range-thumb {
-      box-shadow: 0.9px 0.9px 1px rgba(0, 56, 49, 0.24), 0px 0px 0.9px rgba(0, 82, 71, 0.24);
-      border: 1.8px solid rgba(0, 4, 30, 0.14);
-      height: 26px;
-      width: 26px;
-      border-radius: 15px;
-      background: rgba(71, 227, 255, 0.89);
-      cursor: pointer;
-    }
-    .seekStyle::-ms-track {
-      width: 100%;
-      height: 11.4px;
-      cursor: pointer;
-      background: transparent;
-      border-color: transparent;
-      color: transparent;
-    }
-    .seekStyle::-ms-fill-lower {
-      background: rgba(25, 59, 80, 0.92);
-      border: 0.2px solid #010101;
-      border-radius: 2.6px;
-      box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-    }
-    .seekStyle::-ms-fill-upper {
-      background: rgba(31, 74, 99, 0.92);
-      border: 0.2px solid #010101;
-      border-radius: 2.6px;
-      box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-    }
-    .seekStyle::-ms-thumb {
-      box-shadow: 0.9px 0.9px 1px rgba(0, 56, 49, 0.24), 0px 0px 0.9px rgba(0, 82, 71, 0.24);
-      border: 1.8px solid rgba(0, 4, 30, 0.14);
-      height: 26px;
-      width: 26px;
-      border-radius: 15px;
-      background: rgba(71, 227, 255, 0.89);
-      cursor: pointer;
-      height: 11.4px;
-    }
-    .seekStyle:focus::-ms-fill-lower {
-      background: rgba(31, 74, 99, 0.92);
-    }
-    .seekStyle:focus::-ms-fill-upper {
-      background: rgba(37, 89, 118, 0.92);
-    }
-    
-    .buttonStyle { 
-    text-align:center;
-    }
-    
-    .buttonStyle > div {
-    margin-left:50px;
-    }
-    
-    </style>
-    <div>
-        <p>Choose Album</p>
-        <select id="chooseAlbum">
-        <option >-</option>
+    <div class="container mt-5">
+      <div class="card p-5 w-full md:w-25 mx-auto">
+        <div>
+            <p>Choose Album</p>
+            <select id="chooseAlbum">
+            <option >-</option>
+            </select>
+            </div>
+        <div>
+        <p>Choose Music</p>
+        <select id="chooseMusic">
+        
         </select>
         </div>
-    <div>
-    <p>Choose Music</p>
-    <select id="chooseMusic">
-    
-    </select>
-    </div>
-    <div>
-        <p>Play Mode</p>
-        <input type="radio" name="modeS" value="0" checked="checked"/>NormalSwitch
-        <input type="radio" name="modeS" value="1" />RandomSwitch
-    </div>
-    <hr>
-    <h3 id="myStatus"></h3>
-    <div class="buttonStyle" style="display:flex;">
-    <div id="myMute"><img src="image/mute.png" width="50" height="50" alt="mute"></div>
-    <div id="myPlay" ><img src="image/play.png" width="50" height="50" alt="play" /></div>
-    <div id="myNext"><img src="image/next.png" width="50" height="50" alt="next" /></div>
-    <div id="myPrev"><img src="image/prev.png" width="50" height="50" alt="prev"/></div>
-    </div>
-    
-    <div style="clear:both"></div>
-    <br>
-    <div id="timebox">
-        <span id="curtimetext">00:00</span> / <span id="durtimetext">00:00</span>
-    </div>
-    <div>
-    <input id="mySeek" class="seekStyle" type="range" min="0" max="100" value="0" step="1"/>
-    </div>
-    <div>
-    <span>Volume:</span>
-    <input id="myVolume" type="range" min="0" max="100" value="100" step="1"/>
+        <div>
+        <br>
+            <p>Play Mode</p>
+            <div style="display: flex;">
+            <input type="radio" name="modeS" class="form-check-input" value="0" checked="checked"/> Normal 
+            <input type="radio" name="modeS" class="form-check-input" value="1" /> Random
+            </div>
+        </div>
+        <hr>
+        <h4 id="myStatus"></h4>
+        <div class="mx-auto" style="display: flex;">
+        <div id="myMute" class="d-none"><img src="image/mute.png" class="img-thumbnail" alt="mute"></div>
+        <div id="myPrev" class="mx-2 button-icons"><img src="image/prev.png" class="img-button" alt="prev"/></div>
+        <div id="myPlay" class="mx-2 button-icons"><img src="image/play.png" class="img-button" alt="play" /></div>
+        <div id="myNext" class="mx-2 button-icons"><img src="image/next.png" class="img-button" alt="next" /></div>
+        </div>
+        
+        <div style="clear:both"></div>
+        <br>
+        <div id="timebox" class="mx-auto">
+            <span id="curtimetext">00:00</span> / <span id="durtimetext">00:00</span>
+        </div>
+        <div class="mx-auto">
+        <input id="mySeek" style="text-align: center;" class="seekStyles" type="range" min="0" max="100" value="0" step="1"/>
+        </div>
+        <div class="d-none">
+        <span>Volume:</span>
+        <input id="myVolume" type="range" min="0" max="100" value="100" step="1"/>
+        </div>
+      </div>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slim-select/1.27.1/slimselect.min.js"></script>
